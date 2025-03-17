@@ -24,7 +24,7 @@ jobs:
               ref: 'tags/'
             });
             
-            let last_tag = "v0.0.0";
+            let last_tag = ["v0","0","0"];
             if (tags.length) {
                 last_tag = tags[tags.length - 1].ref.split("/")[2].split(".");
             }
