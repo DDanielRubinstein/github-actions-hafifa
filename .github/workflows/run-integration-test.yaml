@@ -1,0 +1,26 @@
+name: run-integration-test
+          
+on:
+  push:
+    branches:
+      - dev
+
+jobs:
+  run-test:
+    name: Run integration test
+    runs-on: ubuntu-latest
+    environment: Dev
+    steps:
+        - uses: actions/checkout@v4
+        - name: Python Setup
+          uses: actions/setup-python@v5
+          with:
+            python-version: '3.x'
+        - name: Install dependencies
+          run: |
+              python -m pip install --upgrade pip
+              pip install -r requirements.txt
+        - name: Run test
+          env:
+              DISTANCE_API_KEY: ${{ secrets.DISTANCE_API_KEY }}
+          run: python -m tests.test_integration $DISTANCE_API_KEY
