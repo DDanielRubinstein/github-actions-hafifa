@@ -20,7 +20,7 @@ def get_distance(fcountry, scountry):
 
     return int(resp.json()['route']['haversine'])
 
-
+#
 if __name__ == "__main__":
     if len(sys.argv) == 2:
         api_key = sys.argv[1]
