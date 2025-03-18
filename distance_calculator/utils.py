@@ -18,7 +18,7 @@ def get_distance(fcountry, scountry):
         headers={"x-rapidapi-key": api_key, "x-rapidapi-host": "distanceto.p.rapidapi.com", "Content-Type": "application/json"}
     )
 
-    return int(resp.json()['route']['haversine'])
+    return (int(resp.json()['route']['haversine']) + 1)
 
 #
 if __name__ == "__main__":
